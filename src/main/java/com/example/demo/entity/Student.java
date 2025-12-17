@@ -1,4 +1,4 @@
-package com.example.aiml.entity;
+package com.example.demo.entity;
 import jakarta.persistence.*;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
