@@ -1,14 +1,30 @@
 package com.example.aiml.entity;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+@Entity
+//@Table(name="StudentTable")
 public class Student {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String email;
-  
-    public Student(int id, String name, String email) {
+    private LocalDate dob;
+    private float cgpa;
+    public Student(int id, String name, String email, LocalDate dob, float cgpa) {
         this.id = id;
         this.name = name;
         this.email = email;
+        this.dob = dob;
+        this.cgpa = cgpa;
     }
+    //to access the private(get-setter method)
+    // public  void setId(int id){
+    //     this.id=id;
+    // }
+    // public int getId(){
     public int getId() {
         return id;
     }
@@ -27,8 +43,20 @@ public class Student {
     public void setEmail(String email) {
         this.email = email;
     }
-    public Student(){
-        
+    public LocalDate getDob() {
+        return dob;
     }
-    
+    public void setDob(LocalDate dob) {
+        this.dob = dob;
+    }
+    public float getCgpa() {
+        return cgpa;
+    }
+    public void setCgpa(float cgpa) {
+        this.cgpa = cgpa;
+    }
+    public Student() {
+    }
+        
+    // }
 }
