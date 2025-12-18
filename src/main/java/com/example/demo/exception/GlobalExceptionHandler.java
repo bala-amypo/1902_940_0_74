@@ -1,7 +1,11 @@
 package com.example.demo.exception;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import java.util.Map;
+import java 
 @RestControllerAdvice
 public class GlobalExceptionHandler{
 @ExceptionHandler(ResourceNotFoundException.class) //runtime exception
@@ -14,5 +18,5 @@ public class GlobalExceptionHandler{
     Map<String,String> error=new HashMap<>();
     ex.getBindingResult().getFieldErros().forEach(error -> errors.put(error.getField(),error.getDefaultMessage())
     );
-    return new ResponseEntity
+    return new ResponseEntity<>(errors,HttpStatus.BAD_REQUEST);
 }
