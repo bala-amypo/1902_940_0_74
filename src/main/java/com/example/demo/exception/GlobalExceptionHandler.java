@@ -5,7 +5,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import java.util.Map;
-import java.util
+import java.util.HashMap;
+
 @RestControllerAdvice
 public class GlobalExceptionHandler{
 @ExceptionHandler(ResourceNotFoundException.class) //runtime exception
